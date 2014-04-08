@@ -6,12 +6,10 @@ var data = {
   abc: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 };
 
-pub.configure({ host: "localhost", port: 5672 }, function() {
-  var count = 0;
+pub.configure({ host: "bx75", port: 5672 }, function() {
   setInterval(function() {
-    data.count = count;
+    data.count++;
     pub.sendMsg("task_queue", data);
-    count++;
-    console.log(count);
+    console.log(JSON.stringify(data, null, 2));
   }, 1);
 });

@@ -9,7 +9,7 @@ module.exports = (function() {
       var connection = amqp.createConnection(config);
       connection.once('ready', function() {
         pub.sendMsg = function (queueName, msg) {
-          connection.publish(queueName, JSON.stringify(msg));
+          connection.publish(queueName, msg);
         };
         pub.closeConnection = function() {
           connection.disconnect();
