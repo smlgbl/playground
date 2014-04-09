@@ -1,4 +1,4 @@
-var pub = require('./publisher2');
+var pub = require('./amqpTopicConsumer');
 
 var data = {
   count: 0,
